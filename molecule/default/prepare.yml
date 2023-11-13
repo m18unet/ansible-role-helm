@@ -1,0 +1,11 @@
+---
+- name: Prepare
+  hosts: all
+  become: false
+  gather_facts: false
+
+  vars:
+    helm_version: '3.10.0'
+
+  roles:
+    - m18unet.helm

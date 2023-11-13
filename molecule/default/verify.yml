@@ -1,0 +1,19 @@
+---
+- name: Verify
+  hosts: all
+  become: false
+  gather_facts: false
+
+  vars_files:
+    - ../../defaults/main.yml
+
+  tasks:
+    - name: Check the helm version.
+      command: "{{ helm_bin_path }} version --template='{{ '{{' }} .Version {{ '}}' }}'"
+      changed_when: false
+      register: helm_verify_version
+
+    - name: Verify helm's version is {{ helm_version }}
+      assert:
+        that:
+          - helm_version in helm_verify_version.stdout

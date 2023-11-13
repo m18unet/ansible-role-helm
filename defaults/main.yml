@@ -1,0 +1,10 @@
+---
+# See available releases: https://github.com/helm/helm/releases
+helm_version: '3.13.2'
+helm_platform: linux
+helm_arch: amd64
+helm_bin_path: /usr/local/bin/helm
+helm_release_url: https://get.helm.sh
+helm_archive_name: helm-v{{ helm_version }}-{{ helm_platform }}-{{ helm_arch }}.tar.gz
+helm_download_url: "{{ helm_release_url }}/{{ helm_archive_name }}"
+helm_checksum_url: "{{ helm_download_url }}.sha256sum"
